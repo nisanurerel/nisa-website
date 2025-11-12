@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NISANUR</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            background-color: #cfd5dc;
+            color: #000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+		/* mevcut stiller buradaysa */
+		    #scroll-background {
+		      position: absolute;
+		      top: 100vh;
+		      left: -10%;
+		      width: 112%;
+		      background-color: #bec5d1;
+		      z-index: 2;
+		    }
+
+		    /* 💡 responsive kısım — bunu buraya ekle */
+		    @media (max-width: 1024px) {
+		      #scroll-background {
+		        left: -5%;
+		        width: 110%;
+		        min-height: 180%;
+		      }
+		    }
+
+		    @media (max-width: 768px) {
+		      #scroll-background {
+		        left: 0;
+		        width: 100%;
+		        min-height: 250%;
+		      }
+		    }
+
+		    @media (max-width: 480px) {
+		      #scroll-background {
+		        left: 0;
+		        width: 100%;
+		        min-height: 350%;
+		      }
+		    }
+
+        #container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Arkadaki NISAA yazısı */
+        #backdrop-text {
+            position: fixed;
+            top: 57%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60vw;
+            font-weight: normal;
+            color: #2c2541;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            z-index: 1;
+            pointer-events: none;
+            line-height: 0.8;
+            opacity: 1;
+        }
+
+        /* Üst Menü ve arka blok */
+        .top-menu-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 1.5cm;
+            background-color: #cfd5dc;
+            z-index: 20;
+        }
+
+        .top-menu {
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .top-menu a {
+            text-decoration: none;
+            color:#312b45;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 2em;
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section slightly higher */
+        .hero {
+            height: 110vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: visible;
+            position: relative;
+            margin-top: 1cm;
+            z-index: 3;
+        }
+
+        .hero-img {
+            width: 60%;
+            max-height: 80vh;
+            object-fit: cover;
+            display: block;
+            border-radius: 110px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            margin-bottom: -30px;
+        }
+
+        /* Extended background until contact */
+        #scroll-background {
+            position: absolute;
+            top: 100vh;
+            left: -10%;
+            width: 112%;
+
+            height: calc(250vh + 5000px); /* extended to cover entire content */
+            background-color: #bec5d1;
+            z-index: 2;
+        }
+
+        section {
+            position: relative;
+            z-index: 3;
+            padding: 20px 1x;
+        }
+
+        /* WHO IS SHE Section */
+        #who-is-she h2 {
+            font-family: 'Anton', sans-serif;
+            color: #1d1930;
+            font-size: 10vw;
+            text-transform: uppercase;
+            margin: 6;
+            text-align: left;
+            padding-left: 0%;
+        }
+
+        #who-is-she p {
+            font-family: 'Anton', sans-serif;
+            color: #312b45;
+
+            font-size: 3em;
+            margin-left: 0%;
+            margin-top: 0px;
+            line-height: 1.4;
+        }
+
+        /* PROJECTS Section */
+		#projects {
+		    text-align: left;
+		    margin: 50px 0;
+		    padding-left: 20px;
+			color:#312b45;
+		    position: relative;
+		    width: 100%;
+		}
+
+        #projects .projects-title {
+            position: relative;
+            font-family: 'Anton', sans-serif;
+            color: #1d1930;
+            font-size: 10vw;
+            text-transform: uppercase;
+            z-index: 3;
+            margin-bottom: -30px; /* half under image */
+        }
+
+        #projects img {
+            width: 101%;
+            max-height: 100vh;
+            object-fit: cover;
+            border-radius: 110px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            display: block;
+            margin: 0 auto;
+			margin-left: -2%;
+        }
+        #biography {
+            position: relative;
+            text-align: left;
+            margin-top: 0px;
+            z-index: 3;
+        }
+		/* Hover fotoğraf */
+		#hover-img-container {
+		    position: fixed;
+		    top: 90px;
+		    right: 30px;
+		    width: 400px;
+		    height: 600px;
+		    overflow: hidden;
+		    pointer-events: none;
+		    display: none;
+		    z-index: 50;
+		}
+
+		#hover-img-container img {
+		    width: 100%;
+		    height: 100%;
+		    object-fit: cover;
+		    border-radius: 40px;
+
+		    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+		}
+
+        /* Project list below image */
+		.project-list {
+		    list-style-type: disc;  /* bulletpoint ekle */
+		    padding-left: 40px;
+		    font-family: 'Anton', sans-serif;
+		    font-size: 3em;
+		    line-height: 1;
+		}
+
+		.project-list li {
+		    margin: 15px 0;
+		    cursor: pointer;
+		}
+        .travel-table {
+            font-family: 'Anton', sans-serif;
+            color: #1d1930;
+            text-transform: uppercase;
+            font-size: 3em;
+            margin-left: 0%;
+			width: auto;
+            margin-top: 5px;
+			margin-bottom: 5px;
+			margin-left: -2%;
+            line-height: 1.4;
+        }
+        .travel-table td {
+            padding: 15px;
+			margin-left: 2%;
+            text-align: center;
+        }
+		.travel-title {
+		    font-family: 'Anton', sans-serif;
+		    font-size: 10vw;
+		    text-transform: uppercase;
+		    color: #1d1930;
+		    margin-bottom: 20px;
+			margin-left: 1%;
+		    border-bottom: 1px solid #CCC;
+		    padding-bottom: 10px;
+		}
+
+		.maps-container {
+		    display: flex;
+		    flex-wrap: wrap; /* taşan şehirler alt satıra geçer */
+		    gap: 10px; /* şehirler arası boşluk */
+		    margin-left: 0%;
+		    margin-top: 2px;
+		}
+
+		.maps-container a {
+		    padding: 0;
+		    font-family: 'Anton', sans-serif;
+		    font-size: 3.4vw;
+		    text-transform: uppercase;
+		    color: #312b45;              /* kutu boşluğunu sıfırla */
+		    background-color: transparent; /* arkaplan yok */
+		    border-radius: 0;           /* köşeleri düzleştir */
+		    text-decoration: underline; /* istersen metni altı çizili yap */
+		              /* yazı rengi */
+		}
+		}
+
+		.maps-container a:hover {
+		    background-color: #1d1930;
+		    color: #fff;
+		    text-decoration: none;
+		}
+		.biography {
+		    font-family: 'Anton', sans-serif;
+		    color: #1d1930;
+		    text-align: left;
+		    font-size: 49em;
+		    margin: 0;       /* üst ve alt boşluğu sıfırladık */
+		    line-height: 1;
+		}
+
+		.biography-text {
+		    font-family: 'Arial', sans-serif;
+		    color: #312b45;
+		    text-align: fixed;
+		    font-weight: normal;
+		    font-size: 1.2em;
+		    margin: 0px 0%;       /* başlık ile text arasını biraz açtık, yan boşluklar korundu */
+		    line-height: 1.4;
+
+		    /* 3 kolon ayarı */
+		    column-count: 3;
+		    column-gap: 15px;      /* kolonlar arası boşluk */
+		}
+
+        .contact-form {
+            width: 60%;
+            margin: 0 auto;
+            padding: 0px 0;
+            border-top: 1px solid #CCC;
+        }
+        .contact-form input[type="text"], .contact-form textarea, .contact-form select {
+            border: 1px solid #000;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .contact-form input[type="submit"] {
+            background-color: #1d1930;
+            color: #fff;
+            padding: 10px 40px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+		.main-project-img {
+		    width: 100%;
+		    margin: 20px 0;
+		    border-radius: 100px;
+		    display: block;
+		}
+
+
+    </style>
+</head>
+<body>
+
+    <div id="backdrop-text">NiSA</div>
+
+    <div class="top-menu-container">
+        <div class="top-menu">
+            <a href="#">HOME</a>
+			<a href="#projects">PROJECTS</a>
+            <a href="#travel">TRAVELS</a>
+
+
+			<a href="#biography">ABOUT</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </div>
+
+    <div id="container">
+
+        <!-- Hero -->
+        <div class="hero">
+            <img src="images/nisa_profil.jpg" alt="NISAA's Portfolio Photo" class="hero-img">
+        </div>
+
+        <!-- Extended background -->
+        <div id="scroll-background"></div>
+
+        <!-- WHO IS SHE Section -->
+        <section id="who-is-she">
+            <h2>OH, WHO IS SHE?</h2>
+            <p>
+                NISANUR EREL – A passionate student and aspiring web developer. Exploring the world of web design and programming, every step is a journey.
+            </p>
+        </section>
+
+        <!-- PROJECTS Section -->
+	   <section id="projects">
+	       <h2 class="projects-title">PROJECTS</h2>
+	       <img src="images/mainpic.JPG" alt="Featured Project" class="main-project-img">
+
+	       <ul class="project-list">
+	           <li data-img="images/project1.jpg">USE SPORT AS A TOOL MAKE THEIR LIVES REALLY COOL / TURKEY</li><HR>
+	           <li data-img="images/project2.jpg">ECOPULSE / ROMANIA</li><HR>
+	           <li data-img="images/project3.jpg">ECO FRIENDLY TRANSPORTATION IS A NEW FASHION / TURKEY</li><HR>
+	           <li data-img="images/project4.jpg">BYE BYE BOREDOM / SLOVAKIA</li><HR>
+	           <li data-img="images/project5.jpg">LEGACY OF THE SOIL / SPAIN</li><HR>
+	           <li data-img="images/project6.jpg">THINK SHARP LIKE SHARK / LITHUANIA</li><HR>
+	           <li data-img="images/project7.jpg">EMOTIONAL INTELLIGENCE: WHAT IS IT AND WHY IT CAN MAKE US HAPPY / ITALY</li><HR>
+	       </ul>
+
+	       <!-- Hover Fotoğraf Alanı -->
+	       <div id="hover-img-container">
+	           <img id="hover-img" src="" alt="Project Preview">
+	       </div>
+	   </section>
+
+        <!-- Travels Section -->
+        <section id="travel" style="margin-top: 80px;">
+            <h2 style="text-align: left; margin-bottom: 8px; text-transform: uppercase; border-bottom: 1px solid #CCC;font-family: 'Anton', sans-serif;
+            color: #1d1930;
+            font-size: 10vw; padding-bottom: 0px;">TRAVELS</h2>
+
+            <table class="travel-table">
+                <tr>
+                    <td style="width: 22%;">
+                        <img src="images/travel1.jpg" alt="Vienna Trip" style="width: 108%; display: block; border-radius: 60px;">
+                        <p style="font-size: 0.50em;">PARIS | APRIL 2025</p>
+                    </td>
+                    <td style="width: 22%;">
+                        <img src="images/travel2.jpg" alt="Cappadocia Trip" style="width: 108%; display: block; border-radius: 60px;">
+                        <p style="font-size: 0.50em;">BRUSSELS | APRIL 20255</p>
+                    </td>
+                    <td style="width: 22%;">
+                        <img src="images/travel3.jpg" alt="Izmir Coast" style="width: 108%; display: block;border-radius: 60px;">
+                        <p style="font-size: 0.50em;">SEVILLA | JUNE 2025</p>
+                    </td>
+                    <td style="width: 22%;">
+                        <img src="images/travel4.jpg" alt="seville" style="width: 108%; display: block;  border-radius: 60px;">
+                        <p style="font-size: 0.50em;">AMSTERDAM | APRIL 2025</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+		<section id="travel-maps">
+		    <h2 class="travel-title">EXPLORE WITH ME</h2><HR>
+		    <div class="maps-container">
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1g_LmCzWRYN_pjz6EG87B7ruSEJxtHmM&usp=sharing" target="_blank">SEVILLE</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1aSnfBv0VJSBCcCBsbZ0CoEeMbtY7ezA&usp=sharing" target="_blank">COLMAR</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1LjA_UMh2RWYgltwbRWCFSmHAbDWwq_8&usp=sharing" target="_blank">BRUSSELS</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1sKNKlSsJQznacisrAH6PLSUanbdaW0w&usp=sharing" target="_blank">RIGA</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1yShwTIefpo99tFEA-9DEtQEAKATH5vo&usp=sharing" target="_blank">KAUNAS</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1Yq_sPXFQhCikg3_4oK-gZJeESqDWM_E&usp=sharing" target="_blank">FLORENCE </a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1kJlVpvK_3NGKT2SO9jrpZTx2KDCeqRY&usp=sharing" target="_blank">ROME </a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1J-C5N2b1Mou83drIxHMMeefPBGc3YxI&usp=sharing" target="_blank">PARIS</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1NWY7BIlO6aW3YGc_FQMbRmKNhV4O6_c&usp=sharing" target="_blank">AMSTERDAM</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1rXviIxZPS-pFPTRdt5rMwz_MDonDWqI&usp=sharing" target="_blank">BASEL</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1p2DJ6zy61pgEHP5NtVI50cb6fx0cU98&usp=sharing" target="_blank">STRASBOURG</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1UiiswE_FuRmy931pooDKkmPPo5wJqLg&usp=sharing" target="_blank">ZÜRICH</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1Ojf9LFVI1idhOXi_Gkbne5dd43gf5wg&usp=sharing" target="_blank">ZAGREB</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1okeHXjbuw1kqNxn-LaMsvpfUg-ywWUk&usp=sharing" target="_blank">BUDAPEST</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1G9qZkQSob0JqD1oYaNESk0i6Bbbj4JI&usp=sharing" target="_blank">VIENNA</a>
+		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1a2fF78XHQUR6_Y5vDCx_AHXmSxInVQ4&usp=sharing" target="_blank">MILAN</a>
+		    </div>
+			<img src="images/travelpic.jpg" alt="Travel Photo" class="main-project-img">
+
+		</section>
+
+        <section id="biography">
+            <h2 class= "biography">NISA</h2>
+            <p class= "biography-text">
+				Nisanur Erel is a passionate learner, explorer, and future-focused creator who believes that every step, every city, and every line of code holds a story. Born with an innate curiosity and a deep desire to make a positive impact, she thrives at the intersection of creativity, culture, and technology.
+				Currently a student and an aspiring web developer, Nisanur is building her digital journey brick by brick—exploring front-end design, refining her problem-solving abilities, and learning the languages of the modern world, both spoken and coded. For her, the web is not just a platform—it is a canvas, a space where imagination becomes visible and ideas become reality.
+				Beyond the screen, she is a dedicated traveler with a global perspective shaped by meaningful youth exchange projects across Europe. From Turkey to Romania, Slovakia to Belgium and beyond, she has participated in international programs that emphasize sustainability, youth empowerment, emotional intelligence, and creative thinking. Travel is not just movement for her—it is transformation. Each place adds a layer to who she is: more empathetic, more aware, more inspired.
+				Nisanur believes that growth happens outside comfort zones. Whether she is learning a new technology, collaborating with international peers, or finding beauty in simple everyday moments, she approaches life with curiosity, discipline, and an open heart. Her mission is to combine technology and humanity—to build digital experiences that connect people, spark opportunities, and empower young minds to dream louder.
+				This is only the beginning. With ambition as her compass and creativity as her energy source, Nisanur continues to explore, learn, and create—step by step, line by line, city by city. The journey is in progress, and her story is just getting started.
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 style="text-align: left; margin-top: 80px; margin-bottom: 20px; text-transform: uppercase;border-bottom: 1px solid #CCC;font-family: 'Anton', sans-serif;
+            color: #2c2541;
+            font-size: 5vw; padding-bottom: 10px;">CONTACT ME</h2>
+            <form class="contact-form">
+                <p>Name: <input type="text" name="name"></p>
+                <p>Email: <input type="text" name="email"></p>
+                <p>Age Range:</p>
+                <select name="age">
+                    <option value="1">12 - 19</option>
+                    <option value="2">20 - 29</option>
+                    <option value="3">30 - 39</option>
+                    <option value="4">40 + </option>
+                </select>
+                <p style="margin-top: 20px;">Your Message:</p>
+                <textarea name="message" rows="5"></textarea>
+                <p>Would you like a response?
+                    <input type="radio" name="response" value="yes" checked> Yes
+                    <input type="radio" name="response" value="no"> No
+                </p>
+                <p style="text-align: left; margin-top: 30px;">
+                    <input type="submit" value="SEND MESSAGE">
+                </p>
+            </form>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; font-size: 0.7em; color: #555;">
+            <p>&copy; 2025 NISAA. All Rights Reserved. | Designed for Web Programming Course.</p>
+        </footer>
+
+    </div> <script>
+    const projectItems = document.querySelectorAll('.project-list li');
+    const hoverImgContainer = document.getElementById('hover-img-container');
+    const hoverImg = document.getElementById('hover-img');
+
+    projectItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const imgSrc = item.getAttribute('data-img');
+            hoverImg.src = imgSrc;
+            hoverImgContainer.style.display = 'block';
+        });
+
+        item.addEventListener('mouseleave', () => {
+            hoverImgContainer.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>
