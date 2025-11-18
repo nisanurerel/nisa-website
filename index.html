@@ -16,7 +16,7 @@
             padding: 0;
             line-height: 1.6;
         }
-		/* mevcut stiller buradaysa */
+		
 		    #scroll-background {
 		      position: absolute;
 		      top: 100vh;
@@ -26,7 +26,6 @@
 		      z-index: 2;
 		    }
 
-		    /* 💡 responsive kısım — bunu buraya ekle */
 		    @media (max-width: 1024px) {
 		      #scroll-background {
 		        left: -5%;
@@ -59,7 +58,6 @@
             z-index: 10;
         }
 
-        /* Arkadaki NISAA yazısı */
         #backdrop-text {
             position: fixed;
             top: 57%;
@@ -76,7 +74,6 @@
             opacity: 1;
         }
 
-        /* Üst Menü ve arka blok */
         .top-menu-container {
             position: fixed;
             top: 0;
@@ -104,7 +101,6 @@
             letter-spacing: 1px;
         }
 
-        /* Hero Section slightly higher */
         .hero {
             height: 110vh;
             display: flex;
@@ -126,14 +122,13 @@
             margin-bottom: -30px;
         }
 
-        /* Extended background until contact */
         #scroll-background {
             position: absolute;
             top: 100vh;
             left: -10%;
             width: 112%;
 
-            height: calc(250vh + 5000px); /* extended to cover entire content */
+            height: calc(250vh + 5000px);/*sor*/
             background-color: #bec5d1;
             z-index: 2;
         }
@@ -144,7 +139,6 @@
             padding: 20px 1x;
         }
 
-        /* WHO IS SHE Section */
         #who-is-she h2 {
             font-family: 'Anton', sans-serif;
             color: #1d1930;
@@ -165,11 +159,11 @@
             line-height: 1.4;
         }
 
-        /* PROJECTS Section */
 		#projects {
 		    text-align: left;
 		    margin: 50px 0;
 		    padding-left: 20px;
+			border-width:-5%;
 			color:#312b45;
 		    position: relative;
 		    width: 100%;
@@ -182,7 +176,7 @@
             font-size: 10vw;
             text-transform: uppercase;
             z-index: 3;
-            margin-bottom: -30px; /* half under image */
+            margin-bottom: -30px;
         }
 
         #projects img {
@@ -201,7 +195,7 @@
             margin-top: 0px;
             z-index: 3;
         }
-		/* Hover fotoğraf */
+		
 		#hover-img-container {
 		    position: fixed;
 		    top: 90px;
@@ -218,15 +212,16 @@
 		    width: 100%;
 		    height: 100%;
 		    object-fit: cover;
-		    border-radius: 40px;
+		    border-radius: 50px;
 
-		    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+		   
 		}
 
-        /* Project list below image */
+       
 		.project-list {
-		    list-style-type: disc;  /* bulletpoint ekle */
+		    list-style-type: disc; 
 		    padding-left: 40px;
+			border-left:collapse;
 		    font-family: 'Anton', sans-serif;
 		    font-size: 3em;
 		    line-height: 1;
@@ -266,8 +261,8 @@
 
 		.maps-container {
 		    display: flex;
-		    flex-wrap: wrap; /* taşan şehirler alt satıra geçer */
-		    gap: 10px; /* şehirler arası boşluk */
+		    flex-wrap: wrap; 
+		    gap: 10px; 
 		    margin-left: 0%;
 		    margin-top: 2px;
 		}
@@ -277,11 +272,11 @@
 		    font-family: 'Anton', sans-serif;
 		    font-size: 3.4vw;
 		    text-transform: uppercase;
-		    color: #312b45;              /* kutu boşluğunu sıfırla */
-		    background-color: transparent; /* arkaplan yok */
-		    border-radius: 0;           /* köşeleri düzleştir */
-		    text-decoration: underline; /* istersen metni altı çizili yap */
-		              /* yazı rengi */
+		    color: #312b45;             
+		    background-color: transparent; 
+		    border-radius: 0;          
+		    text-decoration: underline; 
+		       
 		}
 		}
 
@@ -295,45 +290,23 @@
 		    color: #1d1930;
 		    text-align: left;
 		    font-size: 49em;
-		    margin: 0;       /* üst ve alt boşluğu sıfırladık */
+		    margin: 0;   
 		    line-height: 1;
 		}
 
 		.biography-text {
-		    font-family: 'Arial', sans-serif;
-		    color: #312b45;
-		    text-align: fixed;
-		    font-weight: normal;
+		    font-family: Arial, sans-serif;
+		    font-weight: 600;
 		    font-size: 1.2em;
-		    margin: 0px 0%;       /* başlık ile text arasını biraz açtık, yan boşluklar korundu */
-		    line-height: 1.4;
+		    line-height: 1.5;
+		    color: #312b45;
 
-		    /* 3 kolon ayarı */
+		    text-align: justify;
 		    column-count: 3;
-		    column-gap: 15px;      /* kolonlar arası boşluk */
+		    column-gap: 15px;
 		}
 
-        .contact-form {
-            width: 60%;
-            margin: 0 auto;
-            padding: 0px 0;
-            border-top: 1px solid #CCC;
-        }
-        .contact-form input[type="text"], .contact-form textarea, .contact-form select {
-            border: 1px solid #000;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .contact-form input[type="submit"] {
-            background-color: #1d1930;
-            color: #fff;
-            padding: 10px 40px;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+    
 		.main-project-img {
 		    width: 100%;
 		    margin: 20px 0;
@@ -341,6 +314,53 @@
 		    display: block;
 		}
 
+		#newsletter {
+		    margin-top: 120px;
+		    margin-bottom: 150px;
+		    padding: 20px 0;
+		}
+
+		.newsletter-title {
+		    font-family: Arial, sans-serif;
+		    color: #312b45;
+		    font-size: 1.4em;
+		    font-weight: 600;
+		    margin-bottom: 25px;
+		}
+
+		.newsletter-box {
+		    display: flex;
+		    align-items: center;
+		    width: 100%;
+		    max-width: 1340px;
+		    border: 2px solid #000;
+		    border-radius: 50px;
+		    padding: 5px;
+		    background-color:#cfd5dc;  
+		}
+
+		.newsletter-input {
+		    flex: 1;
+		    padding: 18px 25px;
+		    font-size: 1.2em;
+		    font-family: Arial, sans-serif;
+		    border: none;
+		    outline: none;
+		    background-color: transparent;
+		}
+
+		.newsletter-btn {
+		    background-color: #1d1d1d;
+		    color: #cfd5dc;
+		    padding: 18px 40px;
+		    border: none;
+		    border-radius: 40px;
+		    font-size: 1.2em;
+		    font-family: Arial, sans-serif;
+		    font-weight: 700;
+		    cursor: pointer;
+		    letter-spacing: 1px;
+		}
 
     </style>
 </head>
@@ -356,29 +376,29 @@
 
 
 			<a href="#biography">ABOUT</a>
-            <a href="#contact">CONTACT</a>
+           
         </div>
     </div>
 
     <div id="container">
 
-        <!-- Hero -->
+   
         <div class="hero">
             <img src="images/nisa_profil.jpg" alt="NISAA's Portfolio Photo" class="hero-img">
         </div>
 
-        <!-- Extended background -->
+       
         <div id="scroll-background"></div>
 
-        <!-- WHO IS SHE Section -->
+       
         <section id="who-is-she">
             <h2>OH, WHO IS SHE?</h2>
             <p>
-                NISANUR EREL – A passionate student and aspiring web developer. Exploring the world of web design and programming, every step is a journey.
+                NISANUR EREL – A passionate student and aspiring web developer. Exploring the world and programming, every step is a journey.
             </p>
         </section>
 
-        <!-- PROJECTS Section -->
+
 	   <section id="projects">
 	       <h2 class="projects-title">PROJECTS</h2>
 	       <img src="images/mainpic.JPG" alt="Featured Project" class="main-project-img">
@@ -393,13 +413,13 @@
 	           <li data-img="images/project7.jpg">EMOTIONAL INTELLIGENCE: WHAT IS IT AND WHY IT CAN MAKE US HAPPY / ITALY</li><HR>
 	       </ul>
 
-	       <!-- Hover Fotoğraf Alanı -->
+	      
 	       <div id="hover-img-container">
 	           <img id="hover-img" src="" alt="Project Preview">
 	       </div>
 	   </section>
 
-        <!-- Travels Section -->
+       
         <section id="travel" style="margin-top: 80px;">
             <h2 style="text-align: left; margin-bottom: 8px; text-transform: uppercase; border-bottom: 1px solid #CCC;font-family: 'Anton', sans-serif;
             color: #1d1930;
@@ -453,44 +473,28 @@
         <section id="biography">
             <h2 class= "biography">NISA</h2>
             <p class= "biography-text">
-				Nisanur Erel is a passionate learner, explorer, and future-focused creator who believes that every step, every city, and every line of code holds a story. Born with an innate curiosity and a deep desire to make a positive impact, she thrives at the intersection of creativity, culture, and technology.
-				Currently a student and an aspiring web developer, Nisanur is building her digital journey brick by brick—exploring front-end design, refining her problem-solving abilities, and learning the languages of the modern world, both spoken and coded. For her, the web is not just a platform—it is a canvas, a space where imagination becomes visible and ideas become reality.
-				Beyond the screen, she is a dedicated traveler with a global perspective shaped by meaningful youth exchange projects across Europe. From Turkey to Romania, Slovakia to Belgium and beyond, she has participated in international programs that emphasize sustainability, youth empowerment, emotional intelligence, and creative thinking. Travel is not just movement for her—it is transformation. Each place adds a layer to who she is: more empathetic, more aware, more inspired.
-				Nisanur believes that growth happens outside comfort zones. Whether she is learning a new technology, collaborating with international peers, or finding beauty in simple everyday moments, she approaches life with curiosity, discipline, and an open heart. Her mission is to combine technology and humanity—to build digital experiences that connect people, spark opportunities, and empower young minds to dream louder.
-				This is only the beginning. With ambition as her compass and creativity as her energy source, Nisanur continues to explore, learn, and create—step by step, line by line, city by city. The journey is in progress, and her story is just getting started.
+				Nisanur Erel is a Computer Engineering student with a solid foundation in software development, robotics, and hands-on technology projects. Currently pursuing her bachelor’s degree at Erzincan Binali Yıldırım University, she has built solid experience in programming, embedded systems, and collaborative engineering work through both academic studies and international programs.<br><br>
+Her passion for technology is complemented by significant international exposure. As an Erasmus Exchange student at the University of León in Spain, Nisanur deepened her focus on Artificial Intelligence and Networks while gaining enriching multicultural teamwork experience. In addition to this program, she has participated in seven Erasmus projects and one Erasmus BIP across Spain, Italy, Turkey, Lithuania, Slovakia, and Romania, often taking on leadership responsibilities during group activities. These experiences nourished her communication skills and built up her ability to adapt and to collaborate across diverse environments.<br> <br>  Before university, Nisanur graduated from Bayburt Science High School with a nationwide placement in the top 0.6%, securing a strong grounding in advanced mathematics, analytical reasoning, and scientific research. She also completed a decade-long gifted-student program at the Science & Arts Center, where she worked on robotics, drone design, and scientific experimentation, which helped lay the foundation for her future engineering interests. <br><br> Her artistic talents were recognized with a Baksi Museum Scholarship, where her works were exhibited between 2016 and 2019. Nisanur has continued to develop her engineering skills through competitive and practical work, including participating in Teknofest with an autonomous drone design and implementation project.<br><br> Her interests span across robotics, hardware development, AI, and hands-on innovation, supported by her qualities in teamwork, leadership, project management, and problem-solving. <br><br>Fluent in Turkish and English, with growing proficiency in Spanish, she is eager to contribute to technology fields that blend creativity and engineering, and that aim for a tangible, real world impact. Endowed with a passion for computer engineering and backed by a strong academic background, Nisanur aims to take part in innovative projects, especially those that push beyond the boundaries of robotics, intelligent systems, and human-centric technology design.
             </p>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 style="text-align: left; margin-top: 80px; margin-bottom: 20px; text-transform: uppercase;border-bottom: 1px solid #CCC;font-family: 'Anton', sans-serif;
-            color: #2c2541;
-            font-size: 5vw; padding-bottom: 10px;">CONTACT ME</h2>
-            <form class="contact-form">
-                <p>Name: <input type="text" name="name"></p>
-                <p>Email: <input type="text" name="email"></p>
-                <p>Age Range:</p>
-                <select name="age">
-                    <option value="1">12 - 19</option>
-                    <option value="2">20 - 29</option>
-                    <option value="3">30 - 39</option>
-                    <option value="4">40 + </option>
-                </select>
-                <p style="margin-top: 20px;">Your Message:</p>
-                <textarea name="message" rows="5"></textarea>
-                <p>Would you like a response?
-                    <input type="radio" name="response" value="yes" checked> Yes
-                    <input type="radio" name="response" value="no"> No
-                </p>
-                <p style="text-align: left; margin-top: 30px;">
-                    <input type="submit" value="SEND MESSAGE">
-                </p>
-            </form>
-        </section>
+	   <section id="newsletter">
+	       <h2 class="newsletter-title">For news and updates sign up with your email address below.</h2>
 
-        <footer style="text-align: center; padding: 40px 0; font-size: 0.7em; color: #555;">
-            <p>&copy; 2025 NISAA. All Rights Reserved. | Designed for Web Programming Course.</p>
-        </footer>
+	       <div class="newsletter-box">
+	           <input type="email" placeholder="Email Address" class="newsletter-input">
+	           <button class="newsletter-btn">SUBMIT</button>
+	       </div>
+	   </section>
+       
+		<section id="personal-info" style=" padding: 10px 10px; text-align: left; font-family: Arial, sans-serif; color: #312b45;">
+		    <h3 style="margin-bottom: 15px; font-size: 1.5em;">CONTACT ME :</h3>
+		    
+		    <p style="margin: 5px 0;">nisanurerel@gmail.com</p>
+		   
+		     <p href="https://www.linkedin.com/in/nisanur-erel" target="_blank">linkedin.com/in/nisanur-erel</a></p>
+		    
+		</section>
 
     </div> <script>
     const projectItems = document.querySelectorAll('.project-list li');
