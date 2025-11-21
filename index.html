@@ -1,517 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NISANUR</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NISANUR</title>
+	<link rel="icon" type="image/png" href="favicon.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
-    <style type="text/css">
-        body {
-            background-color: #cfd5dc;
-            color: #000;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-		
-		    #scroll-background {
-		      position: absolute;
-		      top: 100vh;
-		      left: -10%;
-		      width: 112%;
-		      background-color: #bec5d1;
-		      z-index: 2;
-		    }
-
-		    @media (max-width: 1024px) {
-		      #scroll-background {
-		        left: -5%;
-		        width: 110%;
-		        min-height: 180%;
-		      }
-		    }
-
-		    @media (max-width: 768px) {
-		      #scroll-background {
-		        left: 0;
-		        width: 100%;
-		        min-height: 250%;
-		      }
-		    }
-
-		    @media (max-width: 480px) {
-		      #scroll-background {
-		        left: 0;
-		        width: 100%;
-		        min-height: 350%;
-		      }
-		    }
-
-        #container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
-        }
-
-        #backdrop-text {
-            position: fixed;
-            top: 57%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 60vw;
-            font-weight: normal;
-            color: #2c2541;
-            font-family: 'Anton', sans-serif;
-            text-transform: uppercase;
-            z-index: 1;
-            pointer-events: none;
-            line-height: 0.8;
-            opacity: 1;
-        }
-
-        .top-menu-container {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 1.5cm;
-            background-color: #cfd5dc;
-            z-index: 20;
-        }
-
-        .top-menu {
-            height: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 0 50px;
-        }
-
-        .top-menu a {
-            text-decoration: none;
-            color:#312b45;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 2em;
-            font-family: 'Anton', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .hero {
-            height: 110vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            overflow: visible;
-            position: relative;
-            margin-top: 1cm;
-            z-index: 3;
-        }
-
-        .hero-img {
-            width: 60%;
-            max-height: 80vh;
-            object-fit: cover;
-            display: block;
-            border-radius: 110px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-            margin-bottom: -30px;
-        }
-
-        #scroll-background {
-            position: absolute;
-            top: 100vh;
-            left: -10%;
-            width: 112%;
-
-            height: calc(250vh + 5000px);/*sor*/
-            background-color: #bec5d1;
-            z-index: 2;
-        }
-
-        section {
-            position: relative;
-            z-index: 3;
-            padding: 20px 1x;
-        }
-
-        #who-is-she h2 {
-            font-family: 'Anton', sans-serif;
-            color: #1d1930;
-            font-size: 10vw;
-            text-transform: uppercase;
-            margin: 6;
-            text-align: left;
-            padding-left: 0%;
-        }
-
-        #who-is-she p {
-            font-family: 'Anton', sans-serif;
-            color: #312b45;
-
-            font-size: 3em;
-            margin-left: 0%;
-            margin-top: 0px;
-            line-height: 1.4;
-        }
-
-		#projects {
-		    text-align: left;
-		    margin: 50px 0;
-		    padding-left: 20px;
-			border-width:-5%;
-			color:#312b45;
-		    position: relative;
-		    width: 100%;
+	<style type="text/css">
+		body {
+			background-color: #cfd5dc;
+			color: #000;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			line-height: 1.6;
 		}
 
-        #projects .projects-title {
-            position: relative;
-            font-family: 'Anton', sans-serif;
-            color: #1d1930;
-            font-size: 10vw;
-            text-transform: uppercase;
-            z-index: 3;
-            margin-bottom: -30px;
-        }
+		#scroll-background {
+			position: absolute;
+			top: 100vh;
+			left: -10%;
+			width: 112%;
+			background-color: #bec5d1;
+			z-index: 2;
+		}
 
-        #projects img {
-            width: 101%;
-            max-height: 100vh;
-            object-fit: cover;
-            border-radius: 110px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-            display: block;
-            margin: 0 auto;
+		@media (max-width: 1024px) {
+			#scroll-background {
+				left: -5%;
+				width: 110%;
+				min-height: 180%;
+			}
+		}
+
+		@media (max-width: 768px) {
+			#scroll-background {
+				left: 0;
+				width: 100%;
+				min-height: 250%;
+			}
+		}
+
+		@media (max-width: 480px) {
+			#scroll-background {
+				left: 0;
+				width: 100%;
+				min-height: 350%;
+			}
+		}
+
+		#container {
+			width: 100%;
+			max-width: 1400px;
+			margin: 0 auto;
+			position: relative;
+			z-index: 10;
+		}
+
+		#backdrop-text {
+			position: fixed;
+			top: 57%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 60vw;
+			font-weight: normal;
+			color: #2c2541;
+			font-family: 'Anton', sans-serif;
+			text-transform: uppercase;
+			z-index: 1;
+			pointer-events: none;
+			line-height: 0.8;
+			opacity: 1;
+		}
+
+		.top-menu-container {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			height: 1.5cm;
+			background-color: #cfd5dc;
+			z-index: 20;
+		}
+
+		.top-menu {
+			height: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			padding: 0 50px;
+		}
+
+		.top-menu a {
+			text-decoration: none;
+			color: #312b45;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 2em;
+			font-family: 'Anton', sans-serif;
+			letter-spacing: 1px;
+		}
+
+		.hero {
+			height: 110vh;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			overflow: visible;
+			position: relative;
+			margin-top: 1cm;
+			z-index: 3;
+		}
+
+		.hero-img {
+			width: 60%;
+			max-height: 80vh;
+			object-fit: cover;
+			display: block;
+			border-radius: 110px;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+			margin-bottom: -30px;
+		}
+
+		#scroll-background {
+			position: absolute;
+			top: 100vh;
+			left: -10%;
+			width: 112%;
+
+			height: calc(250vh + 5000px);
+			/*sor*/
+			background-color: #bec5d1;
+			z-index: 2;
+		}
+
+		section {
+			position: relative;
+			z-index: 3;
+			padding: 20px 1x;
+		}
+
+		#who-is-she h2 {
+			font-family: 'Anton', sans-serif;
+			color: #1d1930;
+			font-size: 10vw;
+			text-transform: uppercase;
+			margin: 6;
+			text-align: left;
+			padding-left: 0%;
+		}
+
+		#who-is-she p {
+			font-family: 'Anton', sans-serif;
+			color: #312b45;
+
+			font-size: 3em;
+			margin-left: 0%;
+			margin-top: 0px;
+			line-height: 1.4;
+		}
+
+		#projects {
+			text-align: left;
+			margin: 50px 0;
+			padding-left: 20px;
+			border-width: -5%;
+			color: #312b45;
+			position: relative;
+			width: 100%;
+		}
+
+		#projects .projects-title {
+			position: relative;
+			font-family: 'Anton', sans-serif;
+			color: #1d1930;
+			font-size: 10vw;
+			text-transform: uppercase;
+			z-index: 3;
+			margin-bottom: -30px;
+		}
+
+		#projects img {
+			width: 101%;
+			max-height: 100vh;
+			object-fit: cover;
+			border-radius: 110px;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+			display: block;
+			margin: 0 auto;
 			margin-left: -2%;
-        }
-        #biography {
-            position: relative;
-            text-align: left;
-            margin-top: 0px;
-            z-index: 3;
-        }
-		
+		}
+
+		#biography {
+			position: relative;
+			text-align: left;
+			margin-top: 0px;
+			z-index: 3;
+		}
+
 		#hover-img-container {
-		    position: fixed;
-		    top: 90px;
-		    right: 30px;
-		    width: 400px;
-		    height: 600px;
-		    overflow: hidden;
-		    pointer-events: none;
-		    display: none;
-		    z-index: 50;
+			position: fixed;
+			top: 90px;
+			right: 30px;
+			width: 400px;
+			height: 600px;
+			overflow: hidden;
+			pointer-events: none;
+			display: none;
+			z-index: 50;
 		}
 
 		#hover-img-container img {
-		    width: 100%;
-		    height: 100%;
-		    object-fit: cover;
-		    border-radius: 50px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 50px;
 
-		   
+
 		}
 
-       
+
 		.project-list {
-		    list-style-type: disc; 
-		    padding-left: 40px;
-			border-left:collapse;
-		    font-family: 'Anton', sans-serif;
-		    font-size: 3em;
-		    line-height: 1;
+			list-style-type: disc;
+			padding-left: 40px;
+			border-left: collapse;
+			font-family: 'Anton', sans-serif;
+			font-size: 3em;
+			line-height: 1;
 		}
 
 		.project-list li {
-		    margin: 15px 0;
-		    cursor: pointer;
+			margin: 15px 0;
+			cursor: pointer;
 		}
-        .travel-table {
-            font-family: 'Anton', sans-serif;
-            color: #1d1930;
-            text-transform: uppercase;
-            font-size: 3em;
-            margin-left: 0%;
+
+		.travel-table {
+			font-family: 'Anton', sans-serif;
+			color: #1d1930;
+			text-transform: uppercase;
+			font-size: 3em;
+			margin-left: 0%;
 			width: auto;
-            margin-top: 5px;
+			margin-top: 5px;
 			margin-bottom: 5px;
 			margin-left: -2%;
-            line-height: 1.4;
-        }
-        .travel-table td {
-            padding: 15px;
+			line-height: 1.4;
+		}
+
+		.travel-table td {
+			padding: 15px;
 			margin-left: 2%;
-            text-align: center;
-        }
+			text-align: center;
+		}
+
 		.travel-title {
-		    font-family: 'Anton', sans-serif;
-		    font-size: 10vw;
-		    text-transform: uppercase;
-		    color: #1d1930;
-		    margin-bottom: 20px;
+			font-family: 'Anton', sans-serif;
+			font-size: 10vw;
+			text-transform: uppercase;
+			color: #1d1930;
+			margin-bottom: 20px;
 			margin-left: 1%;
-		    border-bottom: 1px solid #CCC;
-		    padding-bottom: 10px;
+			border-bottom: 1px solid #CCC;
+			padding-bottom: 10px;
 		}
 
 		.maps-container {
-		    display: flex;
-		    flex-wrap: wrap; 
-		    gap: 10px; 
-		    margin-left: 0%;
-		    margin-top: 2px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			margin-left: 0%;
+			margin-top: 2px;
 		}
 
 		.maps-container a {
-		    padding: 0;
-		    font-family: 'Anton', sans-serif;
-		    font-size: 3.4vw;
-		    text-transform: uppercase;
-		    color: #312b45;             
-		    background-color: transparent; 
-		    border-radius: 0;          
-		    text-decoration: underline; 
-		       
+			padding: 0;
+			font-family: 'Anton', sans-serif;
+			font-size: 3.4vw;
+			text-transform: uppercase;
+			color: #312b45;
+			background-color: transparent;
+			border-radius: 0;
+			text-decoration: underline;
+
 		}
 		}
 
 		.maps-container a:hover {
-		    background-color: #1d1930;
-		    color: #fff;
-		    text-decoration: none;
+			background-color: #1d1930;
+			color: #fff;
+			text-decoration: none;
 		}
+
 		.biography {
-		    font-family: 'Anton', sans-serif;
-		    color: #1d1930;
-		    text-align: left;
-		    font-size: 49em;
-		    margin: 0;   
-		    line-height: 1;
+			font-family: 'Anton', sans-serif;
+			color: #1d1930;
+			text-align: left;
+			font-size: 49em;
+			margin: 0;
+			line-height: 1;
 		}
 
 		.biography-text {
-		    font-family: Arial, sans-serif;
-		    font-weight: 600;
-		    font-size: 1.2em;
-		    line-height: 1.5;
-		    color: #312b45;
+			font-family: Arial, sans-serif;
+			font-weight: 600;
+			font-size: 1.2em;
+			line-height: 1.5;
+			color: #312b45;
 
-		    text-align: justify;
-		    column-count: 3;
-		    column-gap: 15px;
+			text-align: justify;
+			column-count: 3;
+			column-gap: 15px;
 		}
 
-    
+
 		.main-project-img {
-		    width: 100%;
-		    margin: 20px 0;
-		    border-radius: 100px;
-		    display: block;
+			width: 100%;
+			margin: 20px 0;
+			border-radius: 100px;
+			display: block;
 		}
 
 		#newsletter {
-		    margin-top: 120px;
-		    margin-bottom: 150px;
-		    padding: 20px 0;
+			margin-top: 120px;
+			margin-bottom: 150px;
+			padding: 20px 0;
 		}
 
 		.newsletter-title {
-		    font-family: Arial, sans-serif;
-		    color: #312b45;
-		    font-size: 1.4em;
-		    font-weight: 600;
-		    margin-bottom: 25px;
+			font-family: Arial, sans-serif;
+			color: #312b45;
+			font-size: 1.4em;
+			font-weight: 600;
+			margin-bottom: 25px;
 		}
 
 		.newsletter-box {
-		    display: flex;
-		    align-items: center;
-		    width: 100%;
-		    max-width: 1340px;
-		    border: 2px solid #000;
-		    border-radius: 50px;
-		    padding: 5px;
-		    background-color:#cfd5dc;  
+			display: flex;
+			align-items: center;
+			width: 100%;
+			max-width: 1340px;
+			border: 2px solid #000;
+			border-radius: 50px;
+			padding: 5px;
+			background-color: #cfd5dc;
 		}
 
 		.newsletter-input {
-		    flex: 1;
-		    padding: 18px 25px;
-		    font-size: 1.2em;
-		    font-family: Arial, sans-serif;
-		    border: none;
-		    outline: none;
-		    background-color: transparent;
+			flex: 1;
+			padding: 18px 25px;
+			font-size: 1.2em;
+			font-family: Arial, sans-serif;
+			border: none;
+			outline: none;
+			background-color: transparent;
 		}
 
 		.newsletter-btn {
-		    background-color: #1d1d1d;
-		    color: #cfd5dc;
-		    padding: 18px 40px;
-		    border: none;
-		    border-radius: 40px;
-		    font-size: 1.2em;
-		    font-family: Arial, sans-serif;
-		    font-weight: 700;
-		    cursor: pointer;
-		    letter-spacing: 1px;
+			background-color: #1d1d1d;
+			color: #cfd5dc;
+			padding: 18px 40px;
+			border: none;
+			border-radius: 40px;
+			font-size: 1.2em;
+			font-family: Arial, sans-serif;
+			font-weight: 700;
+			cursor: pointer;
+			letter-spacing: 1px;
 		}
-
-    </style>
+	</style>
 </head>
+
 <body>
 
-    <div id="backdrop-text">NiSA</div>
+	<div id="backdrop-text">NiSA</div>
 
-    <div class="top-menu-container">
-        <div class="top-menu">
-            <a href="#">HOME</a>
+	<div class="top-menu-container">
+		<div class="top-menu">
+			<a href="#">HOME</a>
 			<a href="#projects">PROJECTS</a>
-            <a href="#travel">TRAVELS</a>
+			<a href="#travel">TRAVELS</a>
 
 
 			<a href="#biography">ABOUT</a>
-           
-        </div>
-    </div>
 
-    <div id="container">
+		</div>
+	</div>
 
-   
-        <div class="hero">
-            <img src="images/nisa_profil.jpg" alt="NISAA's Portfolio Photo" class="hero-img">
-        </div>
-
-       
-        <div id="scroll-background"></div>
-
-       
-        <section id="who-is-she">
-            <h2>OH, WHO IS SHE?</h2>
-            <p>
-                NISANUR EREL – A passionate student and aspiring web developer. Exploring the world and programming, every step is a journey.
-            </p>
-        </section>
+	<div id="container">
 
 
-	   <section id="projects">
-	       <h2 class="projects-title">PROJECTS</h2>
-	       <img src="images/mainpic.JPG" alt="Featured Project" class="main-project-img">
+		<div class="hero">
+			<img src="images/nisa_profil.jpg" alt="NISAA's Portfolio Photo" class="hero-img">
+		</div>
 
-	       <ul class="project-list">
-	           <li data-img="images/project1.jpg">USE SPORT AS A TOOL MAKE THEIR LIVES REALLY COOL / TURKEY</li><HR>
-	           <li data-img="images/project2.jpg">ECOPULSE / ROMANIA</li><HR>
-	           <li data-img="images/project3.jpg">ECO FRIENDLY TRANSPORTATION IS A NEW FASHION / TURKEY</li><HR>
-	           <li data-img="images/project4.jpg">BYE BYE BOREDOM / SLOVAKIA</li><HR>
-	           <li data-img="images/project5.jpg">LEGACY OF THE SOIL / SPAIN</li><HR>
-	           <li data-img="images/project6.jpg">THINK SHARP LIKE SHARK / LITHUANIA</li><HR>
-	           <li data-img="images/project7.jpg">EMOTIONAL INTELLIGENCE: WHAT IS IT AND WHY IT CAN MAKE US HAPPY / ITALY</li><HR>
-	       </ul>
 
-	      
-	       <div id="hover-img-container">
-	           <img id="hover-img" src="" alt="Project Preview">
-	       </div>
-	   </section>
+		<div id="scroll-background"></div>
 
-       
-        <section id="travel" style="margin-top: 80px;">
-            <h2 style="text-align: left; margin-bottom: 8px; text-transform: uppercase; border-bottom: 1px solid #CCC;font-family: 'Anton', sans-serif;
+
+		<section id="who-is-she">
+			<h2>OH, WHO IS SHE?</h2>
+			<p>
+				NISANUR EREL – A passionate student and aspiring web developer. Exploring the world and programming,
+				every step is a journey.
+			</p>
+		</section>
+
+
+		<section id="projects">
+			<h2 class="projects-title">PROJECTS</h2>
+			<img src="images/mainpic.JPG" alt="Featured Project" class="main-project-img">
+
+			<ul class="project-list">
+				<li data-img="images/project1.jpg">USE SPORT AS A TOOL MAKE THEIR LIVES REALLY COOL / TURKEY</li>
+				<HR>
+				<li data-img="images/project2.jpg">ECOPULSE / ROMANIA</li>
+				<HR>
+				<li data-img="images/project3.jpg">ECO FRIENDLY TRANSPORTATION IS A NEW FASHION / TURKEY</li>
+				<HR>
+				<li data-img="images/project4.jpg">BYE BYE BOREDOM / SLOVAKIA</li>
+				<HR>
+				<li data-img="images/project5.jpg">LEGACY OF THE SOIL / SPAIN</li>
+				<HR>
+				<li data-img="images/project6.jpg">THINK SHARP LIKE SHARK / LITHUANIA</li>
+				<HR>
+				<li data-img="images/project7.jpg">EMOTIONAL INTELLIGENCE: WHAT IS IT AND WHY IT CAN MAKE US HAPPY /
+					ITALY</li>
+				<HR>
+			</ul>
+
+
+			<div id="hover-img-container">
+				<img id="hover-img" src="" alt="Project Preview">
+			</div>
+		</section>
+
+
+		<section id="travel" style="margin-top: 80px;">
+			<h2 style="text-align: left; margin-bottom: 8px; text-transform: uppercase; border-bottom: 1px solid #CCC;font-family: 'Anton', sans-serif;
             color: #1d1930;
             font-size: 10vw; padding-bottom: 0px;">TRAVELS</h2>
 
-            <table class="travel-table">
-                <tr>
-                    <td style="width: 22%;">
-                        <img src="images/travel1.jpg" alt="Vienna Trip" style="width: 108%; display: block; border-radius: 60px;">
-                        <p style="font-size: 0.50em;">PARIS | APRIL 2025</p>
-                    </td>
-                    <td style="width: 22%;">
-                        <img src="images/travel2.jpg" alt="Cappadocia Trip" style="width: 108%; display: block; border-radius: 60px;">
-                        <p style="font-size: 0.50em;">BRUSSELS | APRIL 20255</p>
-                    </td>
-                    <td style="width: 22%;">
-                        <img src="images/travel3.jpg" alt="Izmir Coast" style="width: 108%; display: block;border-radius: 60px;">
-                        <p style="font-size: 0.50em;">SEVILLA | JUNE 2025</p>
-                    </td>
-                    <td style="width: 22%;">
-                        <img src="images/travel4.jpg" alt="seville" style="width: 108%; display: block;  border-radius: 60px;">
-                        <p style="font-size: 0.50em;">AMSTERDAM | APRIL 2025</p>
-                    </td>
-                </tr>
-            </table>
-        </section>
+			<table class="travel-table">
+				<tr>
+					<td style="width: 22%;">
+						<img src="images/travel1.jpg" alt="Vienna Trip"
+							style="width: 108%; display: block; border-radius: 60px;">
+						<p style="font-size: 0.50em;">PARIS | APRIL 2025</p>
+					</td>
+					<td style="width: 22%;">
+						<img src="images/travel2.jpg" alt="Cappadocia Trip"
+							style="width: 108%; display: block; border-radius: 60px;">
+						<p style="font-size: 0.50em;">BRUSSELS | APRIL 20255</p>
+					</td>
+					<td style="width: 22%;">
+						<img src="images/travel3.jpg" alt="Izmir Coast"
+							style="width: 108%; display: block;border-radius: 60px;">
+						<p style="font-size: 0.50em;">SEVILLA | JUNE 2025</p>
+					</td>
+					<td style="width: 22%;">
+						<img src="images/travel4.jpg" alt="seville"
+							style="width: 108%; display: block;  border-radius: 60px;">
+						<p style="font-size: 0.50em;">AMSTERDAM | APRIL 2025</p>
+					</td>
+				</tr>
+			</table>
+		</section>
 		<section id="travel-maps">
-		    <h2 class="travel-title">EXPLORE WITH ME</h2><HR>
-		    <div class="maps-container">
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1g_LmCzWRYN_pjz6EG87B7ruSEJxtHmM&usp=sharing" target="_blank">SEVILLE</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1aSnfBv0VJSBCcCBsbZ0CoEeMbtY7ezA&usp=sharing" target="_blank">COLMAR</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1LjA_UMh2RWYgltwbRWCFSmHAbDWwq_8&usp=sharing" target="_blank">BRUSSELS</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1sKNKlSsJQznacisrAH6PLSUanbdaW0w&usp=sharing" target="_blank">RIGA</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1yShwTIefpo99tFEA-9DEtQEAKATH5vo&usp=sharing" target="_blank">KAUNAS</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1Yq_sPXFQhCikg3_4oK-gZJeESqDWM_E&usp=sharing" target="_blank">FLORENCE </a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1kJlVpvK_3NGKT2SO9jrpZTx2KDCeqRY&usp=sharing" target="_blank">ROME </a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1J-C5N2b1Mou83drIxHMMeefPBGc3YxI&usp=sharing" target="_blank">PARIS</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1NWY7BIlO6aW3YGc_FQMbRmKNhV4O6_c&usp=sharing" target="_blank">AMSTERDAM</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1rXviIxZPS-pFPTRdt5rMwz_MDonDWqI&usp=sharing" target="_blank">BASEL</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1p2DJ6zy61pgEHP5NtVI50cb6fx0cU98&usp=sharing" target="_blank">STRASBOURG</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1UiiswE_FuRmy931pooDKkmPPo5wJqLg&usp=sharing" target="_blank">ZÜRICH</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1Ojf9LFVI1idhOXi_Gkbne5dd43gf5wg&usp=sharing" target="_blank">ZAGREB</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1okeHXjbuw1kqNxn-LaMsvpfUg-ywWUk&usp=sharing" target="_blank">BUDAPEST</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1G9qZkQSob0JqD1oYaNESk0i6Bbbj4JI&usp=sharing" target="_blank">VIENNA</a>
-		        <a href="https://www.google.com/maps/d/u/1/edit?mid=1a2fF78XHQUR6_Y5vDCx_AHXmSxInVQ4&usp=sharing" target="_blank">MILAN</a>
-		    </div>
+			<h2 class="travel-title">EXPLORE WITH ME</h2>
+			<HR>
+			<div class="maps-container">
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1g_LmCzWRYN_pjz6EG87B7ruSEJxtHmM&usp=sharing"
+					target="_blank">SEVILLE</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1aSnfBv0VJSBCcCBsbZ0CoEeMbtY7ezA&usp=sharing"
+					target="_blank">COLMAR</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1LjA_UMh2RWYgltwbRWCFSmHAbDWwq_8&usp=sharing"
+					target="_blank">BRUSSELS</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1sKNKlSsJQznacisrAH6PLSUanbdaW0w&usp=sharing"
+					target="_blank">RIGA</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1yShwTIefpo99tFEA-9DEtQEAKATH5vo&usp=sharing"
+					target="_blank">KAUNAS</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1Yq_sPXFQhCikg3_4oK-gZJeESqDWM_E&usp=sharing"
+					target="_blank">FLORENCE </a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1kJlVpvK_3NGKT2SO9jrpZTx2KDCeqRY&usp=sharing"
+					target="_blank">ROME </a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1J-C5N2b1Mou83drIxHMMeefPBGc3YxI&usp=sharing"
+					target="_blank">PARIS</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1NWY7BIlO6aW3YGc_FQMbRmKNhV4O6_c&usp=sharing"
+					target="_blank">AMSTERDAM</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1rXviIxZPS-pFPTRdt5rMwz_MDonDWqI&usp=sharing"
+					target="_blank">BASEL</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1p2DJ6zy61pgEHP5NtVI50cb6fx0cU98&usp=sharing"
+					target="_blank">STRASBOURG</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1UiiswE_FuRmy931pooDKkmPPo5wJqLg&usp=sharing"
+					target="_blank">ZÜRICH</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1Ojf9LFVI1idhOXi_Gkbne5dd43gf5wg&usp=sharing"
+					target="_blank">ZAGREB</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1okeHXjbuw1kqNxn-LaMsvpfUg-ywWUk&usp=sharing"
+					target="_blank">BUDAPEST</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1G9qZkQSob0JqD1oYaNESk0i6Bbbj4JI&usp=sharing"
+					target="_blank">VIENNA</a>
+				<a href="https://www.google.com/maps/d/u/1/edit?mid=1a2fF78XHQUR6_Y5vDCx_AHXmSxInVQ4&usp=sharing"
+					target="_blank">MILAN</a>
+			</div>
 			<img src="images/travelpic.jpg" alt="Travel Photo" class="main-project-img">
 
 		</section>
 
-        <section id="biography">
-            <h2 class= "biography">NISA</h2>
-            <p class= "biography-text">
-				Nisanur Erel is a Computer Engineering student with a solid foundation in software development, robotics, and hands-on technology projects. Currently pursuing her bachelor’s degree at Erzincan Binali Yıldırım University, she has built solid experience in programming, embedded systems, and collaborative engineering work through both academic studies and international programs.<br><br>
-Her passion for technology is complemented by significant international exposure. As an Erasmus Exchange student at the University of León in Spain, Nisanur deepened her focus on Artificial Intelligence and Networks while gaining enriching multicultural teamwork experience. In addition to this program, she has participated in seven Erasmus projects and one Erasmus BIP across Spain, Italy, Turkey, Lithuania, Slovakia, and Romania, often taking on leadership responsibilities during group activities. These experiences nourished her communication skills and built up her ability to adapt and to collaborate across diverse environments.<br> <br>  Before university, Nisanur graduated from Bayburt Science High School with a nationwide placement in the top 0.6%, securing a strong grounding in advanced mathematics, analytical reasoning, and scientific research. She also completed a decade-long gifted-student program at the Science & Arts Center, where she worked on robotics, drone design, and scientific experimentation, which helped lay the foundation for her future engineering interests. <br><br> Her artistic talents were recognized with a Baksi Museum Scholarship, where her works were exhibited between 2016 and 2019. Nisanur has continued to develop her engineering skills through competitive and practical work, including participating in Teknofest with an autonomous drone design and implementation project.<br><br> Her interests span across robotics, hardware development, AI, and hands-on innovation, supported by her qualities in teamwork, leadership, project management, and problem-solving. <br><br>Fluent in Turkish and English, with growing proficiency in Spanish, she is eager to contribute to technology fields that blend creativity and engineering, and that aim for a tangible, real world impact. Endowed with a passion for computer engineering and backed by a strong academic background, Nisanur aims to take part in innovative projects, especially those that push beyond the boundaries of robotics, intelligent systems, and human-centric technology design.
-            </p>
-        </section>
-
-	   <section id="newsletter">
-	       <h2 class="newsletter-title">For news and updates sign up with your email address below.</h2>
-
-	       <div class="newsletter-box">
-	           <input type="email" placeholder="Email Address" class="newsletter-input">
-	           <button class="newsletter-btn">SUBMIT</button>
-	       </div>
-	   </section>
-       
-		<section id="personal-info" style=" padding: 10px 10px; text-align: left; font-family: Arial, sans-serif; color: #312b45;">
-		    <h3 style="margin-bottom: 15px; font-size: 1.5em;">CONTACT ME :</h3>
-		    
-		    <p><a href="mailto:nisanurerel@gmail.com" style="margin: 5px 0;">nisanurerel@gmail.com</a></p>
-		   
-		     <p><a href="https://www.linkedin.com/in/nisanur-erel" target="_blank">linkedin.com/in/nisanur-erel</a></p>
-		    
+		<section id="biography">
+			<h2 class="biography">NISA</h2>
+			<p class="biography-text">
+				Nisanur Erel is a Computer Engineering student with a solid foundation in software development,
+				robotics, and hands-on technology projects. Currently pursuing her bachelor’s degree at Erzincan Binali
+				Yıldırım University, she has built solid experience in programming, embedded systems, and collaborative
+				engineering work through both academic studies and international programs.<br><br>
+				Her passion for technology is complemented by significant international exposure. As an Erasmus Exchange
+				student at the University of León in Spain, Nisanur deepened her focus on Artificial Intelligence and
+				Networks while gaining enriching multicultural teamwork experience. In addition to this program, she has
+				participated in seven Erasmus projects and one Erasmus BIP across Spain, Italy, Turkey, Lithuania,
+				Slovakia, and Romania, often taking on leadership responsibilities during group activities. These
+				experiences nourished her communication skills and built up her ability to adapt and to collaborate
+				across diverse environments.<br> <br> Before university, Nisanur graduated from Bayburt Science High
+				School with a nationwide placement in the top 0.6%, securing a strong grounding in advanced mathematics,
+				analytical reasoning, and scientific research. She also completed a decade-long gifted-student program
+				at the Science & Arts Center, where she worked on robotics, drone design, and scientific
+				experimentation, which helped lay the foundation for her future engineering interests. <br><br> Her
+				artistic talents were recognized with a Baksi Museum Scholarship, where her works were exhibited between
+				2016 and 2019. Nisanur has continued to develop her engineering skills through competitive and practical
+				work, including participating in Teknofest with an autonomous drone design and implementation
+				project.<br><br> Her interests span across robotics, hardware development, AI, and hands-on innovation,
+				supported by her qualities in teamwork, leadership, project management, and problem-solving.
+				<br><br>Fluent in Turkish and English, with growing proficiency in Spanish, she is eager to contribute
+				to technology fields that blend creativity and engineering, and that aim for a tangible, real world
+				impact. Endowed with a passion for computer engineering and backed by a strong academic background,
+				Nisanur aims to take part in innovative projects, especially those that push beyond the boundaries of
+				robotics, intelligent systems, and human-centric technology design.
+			</p>
 		</section>
 
-    </div> <script>
-    const projectItems = document.querySelectorAll('.project-list li');
-    const hoverImgContainer = document.getElementById('hover-img-container');
-    const hoverImg = document.getElementById('hover-img');
+		<section id="newsletter">
+			<h2 class="newsletter-title">For news and updates sign up with your email address below.</h2>
 
-    projectItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            const imgSrc = item.getAttribute('data-img');
-            hoverImg.src = imgSrc;
-            hoverImgContainer.style.display = 'block';
-        });
+			<div class="newsletter-box">
+				<input type="email" placeholder="Email Address" class="newsletter-input">
+				<button class="newsletter-btn">SUBMIT</button>
+			</div>
+		</section>
 
-        item.addEventListener('mouseleave', () => {
-            hoverImgContainer.style.display = 'none';
-        });
-    });
-</script>
+		<section id="personal-info"
+			style=" padding: 10px 10px; text-align: left; font-family: Arial, sans-serif; color: #312b45;">
+			<h3 style="margin-bottom: 15px; font-size: 1.5em;">CONTACT ME :</h3>
+
+			<p><a href="mailto:nisanurerel@gmail.com" style="margin: 5px 0;">nisanurerel@gmail.com</a></p>
+
+			<p><a href="https://www.linkedin.com/in/nisanur-erel" target="_blank">linkedin.com/in/nisanur-erel</a></p>
+
+		</section>
+
+	</div>
+	<script>
+		const projectItems = document.querySelectorAll('.project-list li');
+		const hoverImgContainer = document.getElementById('hover-img-container');
+		const hoverImg = document.getElementById('hover-img');
+
+		projectItems.forEach(item => {
+			item.addEventListener('mouseenter', () => {
+				const imgSrc = item.getAttribute('data-img');
+				hoverImg.src = imgSrc;
+				hoverImgContainer.style.display = 'block';
+			});
+
+			item.addEventListener('mouseleave', () => {
+				hoverImgContainer.style.display = 'none';
+			});
+		});
+	</script>
 </body>
+
 </html>
